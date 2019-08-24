@@ -16,6 +16,11 @@ Uses the default Django development server.
     ```sh
     $ docker-compose up -d --build
     ```
+1. Create super user if desired
+
+    ```sh
+    $ docker-compose exec web python manage.py createsuperuser
+    ```
     
     Test it out at [http://localhost:8000](http://localhost:8000). The "app" folder is mounted into the container and your code changes apply automatically.
 
