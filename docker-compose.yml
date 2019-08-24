@@ -12,9 +12,9 @@ services:
       - DEBUG=1
       - SECRET_KEY=foo
       - SQL_ENGINE=django.db.backends.postgresql
-      - SQL_DATABASE=hello_django_dev
-      - SQL_USER=hello_django
-      - SQL_PASSWORD=hello_django
+      - SQL_DATABASE=SQL_DB_NAME
+      - SQL_USER=SQL_USER_HERE
+      - SQL_PASSWORD=SQL_PASS_HERE
       - SQL_HOST=db
       - SQL_PORT=5432
       - DATABASE=postgres
@@ -25,9 +25,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=hello_django
-      - POSTGRES_PASSWORD=hello_django
-      - POSTGRES_DB=hello_django_dev
+      - POSTGRES_USER=SQL_USER_HERE
+      - POSTGRES_PASSWORD=SQL_PASS_HERE
+      - POSTGRES_DB=SQL_DB_NAME
 
 volumes:
   postgres_data:
