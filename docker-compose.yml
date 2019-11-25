@@ -8,26 +8,14 @@ services:
       - ./app/:/usr/src/app/
     ports:
       - 8000:8000
-    environment:
-      - DEBUG=1
-      - SECRET_KEY=foo
-      - SQL_ENGINE=django.db.backends.postgresql
-      - SQL_DATABASE=SQL_DB_NAME
-      - SQL_USER=SQL_USER_HERE
-      - SQL_PASSWORD=SQL_PASS_HERE
-      - SQL_HOST=db
-      - SQL_PORT=5432
-      - DATABASE=postgres
+    env_file: .env
     depends_on:
       - db
   db:
     image: postgres:11.5-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_USER=SQL_USER_HERE
-      - POSTGRES_PASSWORD=SQL_PASS_HERE
-      - POSTGRES_DB=SQL_DB_NAME
+    env_file: .env.db
 
 volumes:
   postgres_data:
