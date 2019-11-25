@@ -16,6 +16,11 @@ Uses the default Django development server.
     ```sh
     $ docker-compose up -d --build
     ```
+1. Migrate the database. You can do it manually now, or automate it through the entrypoint.sh script
+
+    ```sh
+    $ docker-compose exec web python manage.py migrate
+    ```
 1. Create super user if desired
 
     ```sh
